@@ -1,0 +1,13 @@
+Options -Indexes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Serve existing files directly
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Route everything else through Laravel's public/ folder
+    RewriteRule ^$ public/ [L]
+    RewriteRule ((?!public/).+) public/$1 [L]
+</IfModule>
