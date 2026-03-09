@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* ===== Cairo Font ===== */
+html {
+  direction: rtl;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  font-size: 15px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  /* iOS safe area for notch/home indicator */
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+button, input, select, textarea, th, td {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ===== RTL Inputs ===== */
+input[type="text"]:not([dir="ltr"]),
+input[type="search"]:not([dir="ltr"]),
+input[type="tel"]:not([dir="ltr"]),
+textarea:not([dir="ltr"]),
+select:not([dir="ltr"]) {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ===== Touch improvements ===== */
+button, a, [role="button"], label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+/* ===== Mobile: prevent iOS Safari input zoom (requires >= 16px) ===== */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ===== Mobile: better touch targets ===== */
+@media screen and (max-width: 768px) {
+  button:not(.no-min-h),
+  select,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"] {
+    min-height: 44px;
+  }
+}
+
+/* ===== Scrollbar (desktop only) ===== */
+@media screen and (min-width: 769px) {
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #e2e8f0; }
+  ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+}
+
+/* ===== Smooth scroll on iOS ===== */
+.overflow-y-auto,
+.overflow-x-auto,
+nav {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Table rows hover ===== */
+tbody tr:hover {
+  background-color: #f8fafc;
+  transition: background 0.12s;
+}
+
+/* ===== Word break for Arabic text in tables ===== */
+td, th {
+  word-break: break-word;
+}
+
+/* ===== Print ===== */
+@media print {
+  .no-print { display: none !important; }
+  body {
+    background: white;
+    font-family: 'Cairo', sans-serif;
+    padding: 0;
+  }
+}
